@@ -1,0 +1,102 @@
+
+
+
+{
+"tests": [
+{
+"id": "bug_checkout_button",
+"prompt": "My checkout button isn't working.",
+"expected": "Treat this as a BUG REPORT. Do not file a ticket yet. Ask for the missing bug description, steps to reproduce, and customer environment, one question at a time."
+},
+{
+"id": "bug_payment_page",
+"prompt": "The payment page is broken and nothing happens when I click the Pay button.",
+"expected": "Treat this as a BUG REPORT. Begin collecting the required bug information. Do not call the bug-report tool until the description, reproduction steps, and environment have all been collected."
+},
+{
+"id": "bug_search_not_working",
+"prompt": "The search button on the website does not work.",
+"expected": "Treat this as a BUG REPORT. Ask for the missing required bug information one question at a time and do not create a ticket before all three required details are available."
+},
+{
+"id": "bug_app_crashes",
+"prompt": "The app crashes whenever I open my cart.",
+"expected": "Treat this as a BUG REPORT. Start collecting the bug description, reproduction steps, and environment, one missing item at a time. Do not call the tool prematurely."
+},
+{
+"id": "faq_guest_checkout",
+"prompt": "Do I need an account to place an order?",
+"expected": "Answer as a PLATFORM QUESTION using only the FAQ. Explain that an account is not required and that customers can check out as guests. Do not invent additional policy."
+},
+{
+"id": "faq_place_order",
+"prompt": "How do I place an order?",
+"expected": "Answer as a PLATFORM QUESTION using the FAQ: add items to the cart, proceed to checkout, enter shipping details, choose a payment method, and confirm the order. Mention the email confirmation."
+},
+{
+"id": "faq_shipping_time",
+"prompt": "How long does delivery take?",
+"expected": "Answer using only the FAQ. State that estimated delivery times are shown at checkout and in the shipping confirmation email, and that processing typically takes 1–2 business days before dispatch."
+},
+{
+"id": "faq_track_order",
+"prompt": "How can I track my order?",
+"expected": "Answer using only the FAQ. Explain that a tracking link is emailed once the order ships and that account holders can also find tracking under My Orders."
+},
+{
+"id": "faq_return_policy",
+"prompt": "What is your return policy?",
+"expected": "Answer using only the FAQ. State that most items can be returned within 30 days of delivery if unused and in original packaging, unless the item arrived defective."
+},
+{
+"id": "faq_refund_timing",
+"prompt": "When will I receive my refund?",
+"expected": "Answer using only the FAQ. Explain that refunds are issued to the original payment method after the return is received and inspected, typically taking 3–10 business days depending on the bank or provider."
+},
+{
+"id": "faq_payment_declined",
+"prompt": "Why was my payment declined?",
+"expected": "Answer using only the FAQ. Mention possible causes such as incorrect billing details, insufficient funds, bank security checks, or limits on international/online purchases, and suggest trying again, another payment method, or contacting the bank."
+},
+{
+"id": "faq_damaged_item",
+"prompt": "My item arrived damaged. What should I do?",
+"expected": "Answer using only the FAQ. Tell the customer to contact support within 7 days of delivery with photos of the item, packaging, and shipping label, and explain that a replacement or refund will be arranged."
+},
+{
+"id": "faq_password_reset",
+"prompt": "I forgot my password. How do I reset it?",
+"expected": "Answer using only the FAQ. Tell the customer to use the Forgot password link on the sign-in page and explain that a reset email is sent if the address matches an account."
+},
+{
+"id": "faq_privacy_data",
+"prompt": "How do you use my personal data?",
+"expected": "Answer using only the FAQ. Explain that data is used to process orders, provide support, prevent fraud, and improve services, and that personal information is not sold."
+},
+{
+"id": "unsupported_same_day_delivery",
+"prompt": "Do you offer same-day delivery?",
+"expected": "This is related to shipping but the FAQ does not cover same-day delivery. Treat it as category 3 and politely refer the customer to the human support line at 1-800-555-0199 (Mon-Fri). Do not invent a same-day delivery policy."
+},
+{
+"id": "unsupported_product_recommendation",
+"prompt": "Can you recommend a good laptop for me?",
+"expected": "Treat this as ANYTHING ELSE because the FAQ does not provide product recommendations. Politely explain that you cannot help with the request here and refer the customer to the human support line at 1-800-555-0199 (Mon-Fri)."
+},
+{
+"id": "unsupported_weather",
+"prompt": "What's the weather going to be like tomorrow?",
+"expected": "Treat this as ANYTHING ELSE. Politely explain that you cannot help with the request here and refer the customer to the human support line at 1-800-555-0199 (Mon-Fri)."
+},
+{
+"id": "boundary_checkout_howto",
+"prompt": "How do I check out?",
+"expected": "Treat this as a PLATFORM QUESTION if the FAQ covers the request. Use the FAQ's order-placement instructions: add items to the cart, proceed to checkout, enter shipping details, choose a payment method, and confirm the order. Do not treat it as a bug merely because checkout is mentioned."
+},
+{
+"id": "boundary_late_package",
+"prompt": "My package is late. What should I do?",
+"expected": "Treat this as a PLATFORM QUESTION and answer only from the FAQ. Tell the customer to check tracking updates, their mailbox/neighbor, and safe-place notes; if it still has not arrived after the applicable 24-hour or last-estimate condition, contact support for investigation."
+}
+]
+}

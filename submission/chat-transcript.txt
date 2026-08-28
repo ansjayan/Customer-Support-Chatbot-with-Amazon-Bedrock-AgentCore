@@ -1,0 +1,245 @@
+
+
+
+(.venv) PS C:\Users\ansja\OneDrive\Documents\udacity_aws\Future AWS Agent Engineer\Customer-Support-Chatbot-with-Amazon-Bedrock-AgentCore> python .\chat.py
+Connected to harness support_chatbot (session 33323185-95c2-45e3-917f-7d37c8f787dc-support-chat).
+Type a message, or 'quit' to exit.
+
+you> My checkout button isn't working.
+bot> <thinking> The customer has reported an issue with the checkout button. This is a BUG REPORT. The customer has provided a description, but I need the steps to reproduce and the environment to create a bug report. I will ask for the steps to reproduce first. </thinking>
+
+Please describe the steps you took before the checkout button stopped working.
+
+you> I add a product to my cart and click Checkout, but nothing happens.
+bot> <thinking> The customer has provided the steps to reproduce the issue. I now need the environment (browser, operating system, and device) to create a bug report. </thinking>
+
+Please provide the browser, operating system, and device you are using.
+
+you> Chrome, Windows 11, laptop.
+bot> <thinking> The customer has provided all three required fields: description, steps to reproduce, and environment. I can now create a bug report. </thinking>
+
+[tool call] bugreports___create_bug_report
+Your bug report has been filed with ticket ID a16279b7-6a0e-4ad0-9c6c-a42ef9686a83. The engineering team will follow up. If you have any other issues, please let me know.
+
+you> My checkout button doesn't work. I add a product to my cart, click Checkout, and nothing happens.
+bot> <thinking> The customer has reported a new issue with the checkout button. This is a new BUG REPORT. The customer has provided a description and steps to reproduce, but I need the environment to create a bug report. I will ask for the environment first. </thinking>
+
+Please provide the browser, operating system, and device you are using.
+
+you> Firefox, Windows 11, laptop.
+bot> <thinking> The customer has provided the environment. I now have all three required fields: description, steps to reproduce, and environment. I can now create a bug report. </thinking> 
+[tool call] bugreports___create_bug_report
+Your bug report has been filed with ticket ID 35fc1ab6-2b85-4f86-b061-c3c49478af23. The engineering team will follow up. If you have any other issues, please let me know.
+
+you> The payment page freezes when I click Pay. I'm using Chrome on Linux on a desktop.
+bot> <thinking> The customer has reported a new issue with the payment page freezing. This is a new BUG REPORT. The customer has provided the description, environment, but I need the steps to reproduce to create a bug report. I will ask for the steps to reproduce first. </thinking>
+
+Please describe the steps you took before the payment page froze.
+
+you> I enter my card details and click Pay, and the payment page freezes.
+bot> <thinking> The customer has provided the steps to reproduce the issue. I now have all three required fields: description, steps to reproduce, and environment. I can now create a bug report. </thinking> 
+[tool call] bugreports___create_bug_report
+Your bug report has been filed with ticket ID 06045299-0172-45c1-9075-b347d44c64b9. The engineering team will follow up. If you have any other issues, please let me know.
+
+you> The search button doesn't work. I'm using Chrome on Windows 11 on a laptop. I open the website, enter a product name, and click Search, but nothing happens.
+bot> <thinking> The customer has reported a new issue with the search button. This is a new BUG REPORT. The customer has provided the description, environment, and steps to reproduce. I can now create a bug report. </thinking> 
+[tool call] bugreports___create_bug_report
+Your bug report has been filed with ticket ID 37c93e9a-22b2-42a3-b0b9-e8dd31b016dd. The engineering team will follow up. If you have any other issues, please let me know.
+
+you> The app crashes whenever I open my cart.
+bot> <thinking> The customer has reported a new issue with the app crashing when opening the cart. This is a new BUG REPORT. The customer has provided a description, but I need the steps to reproduce and the environment to create a bug report. I will ask for the steps to reproduce first. </thinking>
+
+Please describe the steps you took before the app crashed when you opened your cart.
+
+you> I open the app and select my cart, and the app crashes.
+bot> <thinking> The customer has provided the steps to reproduce the issue. I now need the environment (browser, operating system, and device) to create a bug report. </thinking>
+
+Please provide the browser, operating system, and device you are using.
+
+you> Chrome, Windows 11, laptop.
+bot> <thinking> The customer has provided the environment. I now have all three required fields: description, steps to reproduce, and environment. I can now create a bug report. </thinking> 
+[tool call] bugreports___create_bug_report
+Your bug report has been filed with ticket ID f8ff7159-9de6-4013-86ad-b438b119e89a. The engineering team will follow up. If you have any other issues, please let me know.
+
+you> Do I need an account to place an order?
+bot> No, you can check out as a guest. Creating an account lets you track orders, save addresses, and speed up future checkouts.
+
+you> How do I place an order?
+bot> Add items to your cart, proceed to checkout, enter shipping details, choose a payment method, and confirm your order. You’ll receive an email confirmation once it’s placed.
+
+you> How do I check out?
+bot> Add items to your cart, proceed to checkout, enter shipping details, choose a payment method, and confirm your order. You’ll receive an email confirmation once it’s placed.
+
+you> How long does delivery take?
+bot> Estimated delivery times are shown at checkout and in your shipping confirmation email. Processing typically takes 1–2 business days before dispatch.
+
+you> How can I track my order?
+bot> Once your order ships, we’ll email a tracking link. If you have an account, you can also find tracking under My Orders.
+
+you> Do you offer same-day delivery?
+bot> I cannot help with that request here. Please contact human support at 1-800-555-0199 (Mon-Fri).
+
+you> Can I get free overnight shipping?
+bot> I cannot help with that request here. Please contact human support at 1-800-555-0199 (Mon-Fri).
+
+you> What's the weather going to be like tomorrow?
+bot> I cannot help with that request here. Please contact human support at 1-800-555-0199 (Mon-Fri).
+
+you> 
+
+
+
+ aws dynamodb scan `
+>>   --table-name bug-report-tool-stack-bug-reports `
+>>   --region us-east-1 `
+>>                 
+{                                                                                                                                                             
+    "Items": [
+        {
+            "environment": {
+                "S": "Firefox, Windows 11, laptop."
+            },
+            "createdAt": {
+                "S": "2026-08-28T17:36:47.419035+00:00"
+            },
+            "description": {
+                "S": "My checkout button doesn't work."
+            },
+            "stepsToReproduce": {
+                "S": "I add a product to my cart, click Checkout, and nothing happens."
+            },
+            "ticketId": {
+                "S": "35fc1ab6-2b85-4f86-b061-c3c49478af23"
+            },
+            "status": {
+                "S": "OPEN"
+            }
+        },
+        {
+            "environment": {
+                "S": "Chrome, Windows 11, laptop"
+            },
+            "createdAt": {
+                "S": "2026-08-28T17:25:30.989191+00:00"
+            },
+            "stepsToReproduce": {
+                "S": "Attempted to click the checkout button, but nothing happened."
+            },
+            "description": {
+                "S": "My checkout button isn't working."
+            },
+            "ticketId": {
+                "S": "e32ebb42-e7c7-4c9d-8aef-66af4e6322be"
+            },
+            "status": {                                                                                                                                       
+                "S": "OPEN"                                                                                                                                   
+            }                                                                                                                                                 
+        },                                                                                                                                                    
+        {                                                                                                                                                     
+            "environment": {                                                                                                                                  
+                "S": "Chrome, Linux, desktop."                                                                                                                
+            },                                                                                                                                                
+            "createdAt": {                                                                                                                                    
+                "S": "2026-08-28T17:37:52.259699+00:00"                                                                                                       
+            },                                                                                                                                                
+            "description": {                                                                                                                                  
+                "S": "The payment page freezes when I click Pay."                                                                                             
+            },                                                                                                                                                
+            "stepsToReproduce": {                                                                                                                             
+                "S": "I enter my card details and click Pay, and the payment page freezes."                                                                   
+            },                                                                                                                                                
+            "ticketId": {                                                                                                                                     
+                "S": "06045299-0172-45c1-9075-b347d44c64b9"                                                                                                   
+            },                                                                                                                                                
+            "status": {                                                                                                                                       
+                "S": "OPEN"                                                                                                                                   
+            }                                                                                                                                                 
+        },                                                                                                                                                    
+        {                                                                                                                                                     
+            "environment": {                                                                                                                                  
+                "S": "Please provide your browser, operating system, and device."                                                                             
+            },                                                                                                                                                
+            "createdAt": {                                                                                                                                    
+                "S": "2026-08-28T17:25:09.226332+00:00"                                                                                                       
+            },                                                                                                                                                
+            "description": {                                                                                                                                  
+                "S": "My checkout button isn't working."                                                                                                      
+            },                                                                                                                                                
+            "stepsToReproduce": {                                                                                                                             
+                "S": "Attempted to click the checkout button, but nothing happened."                                                                          
+            },                                                                                                                                                
+            "ticketId": {                                                                                                                                     
+                "S": "8e2b4509-9a9d-4f50-92fa-067be4640a81"                                                                                                   
+            },                                                                                                                                                
+            "status": {                                                                                                                                       
+                "S": "OPEN"                                                                                                                                   
+            }                                                                                                                                                 
+        },                                                                                                                                                    
+        {                                                                                                                                                     
+            "environment": {                                                                                                                                  
+                "S": "Chrome, Windows 11, laptop."                                                                                                            
+            },                                                                                                                                                
+            "createdAt": {                                                                                                                                    
+                "S": "2026-08-28T17:38:16.185755+00:00"                                                                                                       
+            },                                                                                                                                                
+            "description": {                                                                                                                                  
+                "S": "The search button doesn't work."                                                                                                        
+            },                                                                                                                                                
+            "stepsToReproduce": {                                                                                                                             
+                "S": "I open the website, enter a product name, and click Search, but nothing happens."                                                       
+            },                                                                                                                                                
+            "ticketId": {                                                                                                                                     
+                "S": "37c93e9a-22b2-42a3-b0b9-e8dd31b016dd"                                                                                                   
+            },                                                                                                                                                
+            "status": {                                                                                                                                       
+                "S": "OPEN"                                                                                                                                   
+            }                                                                                                                                                 
+        },                                                                                                                                                    
+        {                                                                                                                                                     
+            "environment": {                                                                                                                                  
+                "S": "Chrome, Windows 11, laptop."                                                                                                            
+            },                                                                                                                                                
+            "createdAt": {                                                                                                                                    
+                "S": "2026-08-28T17:33:20.390755+00:00"                                                                                                       
+            },                                                                                                                                                
+            "stepsToReproduce": {                                                                                                                             
+                "S": "I add a product to my cart and click Checkout, but nothing happens."                                                                    
+            },                                                                                                                                                
+            "description": {                                                                                                                                  
+                "S": "My checkout button isn't working."                                                                                                      
+            },                                                                                                                                                
+            "ticketId": {                                                                                                                                     
+                "S": "a16279b7-6a0e-4ad0-9c6c-a42ef9686a83"                                                                                                   
+            },                                                                                                                                                
+            "status": {                                                                                                                                       
+                "S": "OPEN"                                                                                                                                   
+            }                                                                                                                                                 
+        },                                                                                                                                                    
+        {                                                                                                                                                     
+            "environment": {                                                                                                                                  
+                "S": "Chrome, Windows 11, laptop."                                                                                                            
+            },                                                                                                                                                
+            "createdAt": {                                                                                                                                    
+                "S": "2026-08-28T17:38:56.990345+00:00"                                                                                                       
+            },                                                                                                                                                
+            "description": {                                                                                                                                  
+                "S": "The app crashes whenever I open my cart."                                                                                               
+            },                                                                                                                                                
+            "stepsToReproduce": {                                                                                                                             
+                "S": "I open the app and select my cart, and the app crashes."                                                                                
+            },                                                                                                                                                
+            "ticketId": {                                                                                                                                     
+                "S": "f8ff7159-9de6-4013-86ad-b438b119e89a"                                                                                                   
+            },                                                                                                                                                
+            "status": {                                                                                                                                       
+                "S": "OPEN"                                                                                                                                   
+            }                                                                                                                                                 
+        }                                                                                                                                                     
+    ],                                                                                                                                                        
+    "Count": 7,                                                                                                                                               
+    "ScannedCount": 7,                                                                                                                                        
+    "ConsumedCapacity": null                                                                                                                                  
+}                                                                            
+
+
+
